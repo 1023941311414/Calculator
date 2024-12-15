@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>glyph:</title>
+        <link rel="stylesheet" href="index.css"> <!--not entirely sure what this does but it was in the demo soooo-->
+    </head>
+    <body>
+        glyph:
+        <form action="#"> <!--again not entirely sure what the action thing does but trusting the demo-->
+            <label for="glyph">glyph</label>
+            <select id="glyph" name="glyph selector" required> <!--all after the id part is just for leaning purposes- submission to server junk NOTE: you can add size="x" to the tag to set the amount of items to show at a given time 
+            without scroll- remove blank option tho might not be as useful then- adding disabled will prevent the user from interacting with the element- autofocus specifies an element that should be in focus on page load, 
+            whatever that means, i think its that its in the middle of the page or smth idk- adding multiple allows the user to select multiple options by holding down shift/ctrl- use <optgroup label="whatever"> to group options
+            for complex selection on something like a first choice or what have you-->
+                <option value="select">select glyph or whatever shuffleboard says</option>
+                <option value="ambulance">ambulance</option>
+                <option value="deviantart">deviantart</option>
+                <option value="github">github</option>
+                <option value="bitcoin">bitcoin</option>
+            </select>
+            <!--<input type="submit" value="submit" /> for learning purposes- this would make a submit button-->
+            <button onclick="imageSelect()">glyph</button>
+        </form>
+
+    </body>
+    <script type="text/javascript">
+        function getOption() {
+            selectElement = 
+                  document.querySelector('#glyph');
+            return selectElement.value;
+        }
+        //let source = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVrv0hKaapADOcunycEfJSulpNd6ULkPRIlw&s"
+        function imageSelect(){
+            let src;
+
+            switch(getOption){
+                default:
+                    src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVrv0hKaapADOcunycEfJSulpNd6ULkPRIlw&s";
+                    break;
+                case "ambulance":
+                    src = "https://p7.hiclipart.com/preview/52/634/435/5bbdf118ccad9-thumbnail.jpg";
+                    break;
+            }
+
+            //  if(glyph = "ambulance"){
+            //     src = "https://p7.hiclipart.com/preview/52/634/435/5bbdf118ccad9-thumbnail.jpg";
+            //     //document.getElementById('body').appendChild(img); //i feel like this if anything is causing issue (that is, if it is just one step- for all i know ive violated fifteen major conventions and this whole setup is destined for failure :) )
+            //     //res.innerHTML = "Image Element Added.";
+            // } else if(glyph = "deviantart"){
+            //     src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWzaP1_eFpK2APITIDsmrAAosn14V9_yS7Kg&s";
+            // } else if(glyph = "github"){
+            //     src = "https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg";
+            // } else if(glyph = "bitcoin"){
+            //     src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png";
+            // } else if(glyph = "select"){
+            //     src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVrv0hKaapADOcunycEfJSulpNd6ULkPRIlw&s";
+            // }
+            show_image(src, 70, 50, "text :D");
+        }
+
+        function show_image(src, width, height,alt) {
+            let img = document.createElement("img");
+
+            img.src = src;
+            img.width = width;
+            img.height = height;
+            img.alt = alt;
+ 
+            document.body.appendChild(img);
+        }
+        
+            //document.getElementById('img').src = source; from when links were preceded by let source = and image w/ id image existed in body- didnt work lol
+    </script>
+</html>
